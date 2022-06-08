@@ -1,22 +1,25 @@
+///<reference types="Cypress" />
 
 
-
-  describe('Teste funcional', () => {
-    it('Visitando tela Login', () => {
-      cy.visit('https://qa-test.avenuecode.io/')
+  describe('Central de Atendimento ao Cliente TAT', function() {
+    beforeEach(function(){
+        cy.visit('https://account.blip.ai')
     })
 
-    it('Entrar tela de Login', () => {
-      cy.get('.btn-primary').click()
+    it('Usuário Loga na Aplicação com dados Válidos', () => {
+      cy.get('#email').type('julianokoslowisk@gmail.com')
+      cy.get('#password').type('Koslowisk123!@#')
+      cy.get('#blip-login').click()
+      cy.get('#logout-link').click()    
     })
 
-    it('Efetuar Login', () => {
-      cy.get('#user_email').type('julianokoslowisk@gmail.com')
-      cy.get('#user_password').type('juliano1234')
-      cy.get('.btn').click()
-    })
+    it.only('Usuário Tenta logar na aplicação com dados Inválidos', () => {
+      cy.get('#email').type('julianokoslowisk@gmail.com')
+      cy.get('#password').type('oslowisk123!@#')
+      cy.get('#blip-login').click()
+      cy.get('#logout-link').click()
+      .should('have.value','Login e/ou senha inválidos')
+     
 
+    })
   })
-
-
-  
