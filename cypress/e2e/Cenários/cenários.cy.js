@@ -5,7 +5,7 @@
     beforeEach(function(){
         cy.visit('https://account.blip.ai')
     })
-
+ 
     it('Cenário 1 : Usuário Loga na Aplicação com dados Válidos', () => {
       cy.get('#email').type('julianokoslowisk@gmail.com')
         .should('have.value', 'julianokoslowisk@gmail.com')
@@ -45,7 +45,7 @@
     
   }) */
 
-  it.only('Cenário 5: Usuário tenta Efetuar um novo Cadastro com dados Inválidos ', () => {
+   it('Cenário 5: Usuário tenta Efetuar um novo Cadastro com dados Inválidos ', () => {
     cy.get('#blip-register').click()
     cy.get('#FullName')
       .type('1')

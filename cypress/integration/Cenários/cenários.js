@@ -45,7 +45,7 @@
     
   }) */
 
-  it.only('Cenário 5: Usuário tenta Efetuar um novo Cadastro com dados Inválidos ', () => {
+  it('Cenário 5: Usuário tenta Efetuar um novo Cadastro com dados Inválidos ', () => {
     cy.get('#blip-register').click()
     cy.get('#FullName')
       .type('1')
